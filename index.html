@@ -50,9 +50,12 @@
 	
 	var collegeD = L.marker([51.130253, -2.733958]).addTo(mymap);
 	
+	var collegeM = L.marker([51.129647, -2.732584]).addTo(mymap);
+	
 	marker.bindPopup("<img class='popup' src='tor.jpg'/><br /><b>Glastonbury Tor</b>").openPopup();
 	collegeC.bindPopup("<b>C Block</b><br>Strode College").openPopup();
 	collegeD.bindPopup("<b>D Block</b><br>Strode College").openPopup();
+	collegeM.bindPopup("<b>M Block</b><br>Strode College").openPopup();
 	
         var baseMaps = {
            "OSM ": osm,
