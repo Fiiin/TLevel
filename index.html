@@ -24,7 +24,6 @@
 <div id="mapid"></div>
 <script>
 
-	
 	var mymap = L.map('mapid', {
             center: [51.14471, -2.69866],
 	    zoom: 13,
@@ -44,18 +43,25 @@
             maxNativeZoom: 18,
 	    maxZoom: 22
         });
+	
+	var surface = L.tileLayer('https://geoffrowland.github.io/Surface-Street/{z}/{x}/{y}.png', {
+	    tms: true, 
+	    opacity: 1.0,
+	    maxNativeZoom: 18,	
+	    maxZoom: 20,
+	    minZoom: 12,
+	    attribution: 'LiDAR 1m DSM Environment Agency OGL &copy; Crown Copyright 2021'
+        });	
+	
 	var marker = L.marker([51.14471, -2.69866]).addTo(mymap);
-        
-	var collegeC = L.marker([51.129852, -2.7334955]).addTo(mymap);
-	
-	var collegeD = L.marker([51.130253, -2.733958]).addTo(mymap);
-	
-	var collegeM = L.marker([51.129647, -2.732584]).addTo(mymap);
-	
 	marker.bindPopup("<img class='popup' src='tor.jpg'/><br /><b>Glastonbury Tor</b>").openPopup();
-	collegeC.bindPopup("<b>C Block</b><br>Strode College").openPopup();
-	collegeD.bindPopup("<b>D Block</b><br>Strode College").openPopup();
-	collegeM.bindPopup("<b>M Block</b><br>Strode College").openPopup();
+        
+	var college = L.marker([51.129852, -2.7334955]).addTo(mymap);
+	college.bindPopup("<b>C Block</b><br>Strode College").openPopup();
+	
+	var college1 = L.marker([51.129952, -2.7334955]).addTo(mymap);
+	
+	
 	
         var baseMaps = {
            "OSM ": osm,
@@ -63,6 +69,7 @@
         };
 
         var overlayMaps = {
+	    "Surface": surface,
             "Marker": marker,
             "College": college,
             "College 1": college1
